@@ -123,13 +123,13 @@ public class FileDialogActivity extends AppCompatActivity {
             if (requestCode == OPEN_FILE) {
                 Uri uri = data.getData();
                 String uriString = uri.toString();
-                File myFile = new File(uriString);
-                String path = myFile.getAbsolutePath();
+                File archivo = new File(uriString);
+                String ruta = archivo.getAbsolutePath();
                 String displayName = null;
-                displayName = myFile.getName();
+                displayName = archivo.getName();
                 try {
                     texto = readTextFromUri(uri);
-                    LaunchEditor(0, path, texto);
+                    LaunchEditor(0, ruta, texto);
                 } catch (IOException e) {
                     LanzarAlerta("Error","Error al Abrir");
                 }
@@ -142,9 +142,9 @@ public class FileDialogActivity extends AppCompatActivity {
                     output.flush();
                     output.close();
                     String uriString = uri.toString();
-                    File myFile = new File(uriString);
-                    String path = myFile.getAbsolutePath();
-                    LaunchEditor(0, path, texto);
+                    File archivo = new File(uriString);
+                    String ruta = archivo.getAbsolutePath();
+                    LaunchEditor(0, ruta, texto);
                 }
                 catch(IOException e) {
                     LanzarAlerta("Error","Error al Guardar");
