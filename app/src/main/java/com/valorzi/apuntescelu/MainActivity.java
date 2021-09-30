@@ -134,10 +134,10 @@ public class MainActivity extends Activity {
     }
 
     public void BtAcerca(View v){
-        Preguntar(getString(R.string.content_version), getString(R.string.content_about),"","", 4);
+        LanzarAlerta(getString(R.string.content_version), getString(R.string.content_about));
     }
     public void BtAyuda(View v){
-        Preguntar(getString(R.string.content_version), getString(R.string.content_ayuda),"","", 4);
+        LanzarAlerta(getString(R.string.content_version), getString(R.string.content_ayuda));
     }
     public void BtBuscar(View v){
         Confirmar(getString(R.string.label_buscar),clave,6);
@@ -151,7 +151,7 @@ public class MainActivity extends Activity {
         Confirmar(getString(R.string.label_ir_a),String.valueOf(editText1.getSelectionStart()),5);
     }
     public void BtPropiedades(View v){
-        Preguntar(getString(R.string.label_propiedades), Propiedades(archivoActual),"","", 8);
+        LanzarAlerta(getString(R.string.label_propiedades), Propiedades(archivoActual));
     }
     public void Pegar(View v){
         int inicio=editText1.getSelectionStart();int fin=editText1.getSelectionEnd();
@@ -211,7 +211,7 @@ public class MainActivity extends Activity {
         {
             File f = new File(ruta,nombre);
             if(f.exists()){
-                Preguntar("Alerta","SobreEscribir el fichero?",ruta,nombre,2);
+                LanzarAlerta("Alerta","SobreEscribir el fichero?");
                 return;
             }
 
@@ -247,19 +247,13 @@ public class MainActivity extends Activity {
             Log.e(ruta+nombre, "Error al escribir el fichero");
         }
     }
-    private void Preguntar(String Titulo,String Mensaje,final String ruta,final String nombre,final int Evento){
-
+    private void LanzarAlerta(String Titulo,String Mensaje){
         new AlertDialog.Builder(this)
                 .setTitle(Titulo)
                 .setMessage(Mensaje)
                 .setNegativeButton(android.R.string.no, null)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface arg0, int arg1) {
-                        switch(Evento){
-                            case 0:break;
-                            case 1:break;
-                            case 2:_guardarFichero(ruta,nombre);break;
-                        }
                     }
                 }).create().show();
     }

@@ -3,6 +3,8 @@ package com.valorzi.apuntescelu;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -68,6 +70,7 @@ public class FileDialogActivity extends AppCompatActivity {
             else if(evento == SAVE_FILE)
                 showSaveFileChooser();
         } catch (Exception e) {
+            LanzarAlerta("Error","Error al desplegar el Explorador de Archivos");
             Cancelar();
         }
 
@@ -82,20 +85,20 @@ public class FileDialogActivity extends AppCompatActivity {
             startActivityForResult(Intent.createChooser(intent, "Select a File to Upload"), OPEN_FILE);
         } catch (android.content.ActivityNotFoundException ex) {
             // Potentially direct the user to the Market with a Dialog
-            Toast.makeText(this, "Please install a File Manager.", Toast.LENGTH_SHORT).show();
+            LanzarAlerta("Error","Error al desplegar el Explorador de Archivos");
         }
     }
 
     private void showSaveFileChooser(){
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("*/*"); //not needed, but maybe usefull
-      //  intent.putExtra(Intent.EXTRA_TITLE, "YOUR FILENAME"); //not needed, but maybe usefull
+        intent.setType("*/*");
+      //  intent.putExtra(Intent.EXTRA_TITLE, archivoActual);
         try {
             startActivityForResult(Intent.createChooser(intent, "Select a Directory to save"), SAVE_FILE);
         } catch (android.content.ActivityNotFoundException ex) {
             // Potentially direct the user to the Market with a Dialog
-            Toast.makeText(this, "Please install a File Manager.", Toast.LENGTH_SHORT).show();
+            LanzarAlerta("Error","Error al desplegar el Explorador de Archivos");
         }
     }
 
@@ -116,33 +119,48 @@ public class FileDialogActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == OPEN_FILE && resultCode == RESULT_OK) {
-            Uri uri = data.getData();
-            String uriString = uri.toString();
-            File myFile = new File(uriString);
-            String path = myFile.getAbsolutePath();
-            String displayName = null;
-            displayName = myFile.getName();
-            try {
-               texto = readTextFromUri(uri);
-               LaunchEditor(0,path,texto);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else
-            if (requestCode == SAVE_FILE && resultCode == RESULT_OK) {
+        if(resultCode == RESULT_OK) {
+            if (requestCode == OPEN_FILE) {
                 Uri uri = data.getData();
-           /*     try {
-                    OutputStream output = getContext().getContentResolver().openOutputStream(uri);
-
-                    output.write(SOME_CONTENT.getBytes());
+                String uriString = uri.toString();
+                File myFile = new File(uriString);
+                String path = myFile.getAbsolutePath();
+                String displayName = null;
+                displayName = myFile.getName();
+                try {
+                    texto = readTextFromUri(uri);
+                    LaunchEditor(0, path, texto);
+                } catch (IOException e) {
+                    LanzarAlerta("Error","Error al Abrir");
+                }
+            }
+            else if (requestCode == SAVE_FILE) {
+                Uri uri = data.getData();
+                try {
+                    OutputStream output = getBaseContext().getContentResolver().openOutputStream(uri);
+                    output.write(texto.getBytes());
                     output.flush();
                     output.close();
+                    String uriString = uri.toString();
+                    File myFile = new File(uriString);
+                    String path = myFile.getAbsolutePath();
+                    LaunchEditor(0, path, texto);
                 }
                 catch(IOException e) {
-                    Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-                }  */
+                    LanzarAlerta("Error","Error al Guardar");
+                }
+            }
         }
 
+    }
+    private void LanzarAlerta(String Titulo,String Mensaje){
+        new AlertDialog.Builder(this)
+                .setTitle(Titulo)
+                .setMessage(Mensaje)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                     Cancelar();
+                    }
+                }).create().show();
     }
 }
