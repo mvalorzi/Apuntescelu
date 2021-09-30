@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Apuntescelu</string>
+    <string name="label_nuevo">Nuevo</string>
+    <string name="label_ok">Ok</string>
+    <string name="label_guardar">Guardar</string>
+    <string name="label_guardar_como">Guardar Como</string>
+    <string name="label_abrir">Abrir</string>
+    <string name="label_copiar">Copiar</string>
+    <string name="label_cortar">Cortar</string>
+    <string name="label_pegar">Pegar</string>
+    <string name="label_eliminar">Borrar</string>
+    <string name="label_buscar">Buscar</string>
+    <string name="label_buscar_siguiente">Buscar Siguiente</string>
+    <string name="label_propiedades">Propiedades</string>
+    <string name="label_ayuda">Ayuda</string>
+    <string name="label_acercade">Acerca De...</string>
+    <string name="label_home">Home</string>
+    <string name="label_up">Arriba</string>
+    <string name="label_ir">Ir</string>
+    <string name="label_text">Texto</string>
+    <string name="label_file_name">nombre de archivo</string>
+    <string name="content_ayuda">Editor de Texto Plano para Android\\nMas informacion en programas.com.ar\\n\\nPara eliminar un archivo, borre todo el contenido y pulse guardar.\\n \'Ir a\' permite dirigirnos a una posición dentro del texto.</string>
+    <string name="content_about">Editor de Texto Plano para Android\\nAutor: Martin Valorzi\\nprogramas.aspx.com.ar</string>
+    <string name="content_version">Apuntescelu 2.0</string>
+    <string name="label_ir_a">ir a ..</string>
+    <string name="label_si">Si</string>
+    <string name="label_no">No</string>
+    <string name="label_chars">"Caracteres: "</string>
+    <string name="label_read">"Lectura: "</string>
+    <string name="label_write">"Escritura: "</string>
+    <string name="label_size">"Tamaño: "</string>
+    <string name="label_nombre_archivo">Nombre de Archivo</string>
+</resources>

@@ -1,0 +1,141 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical" >
+
+        <HorizontalScrollView
+            android:id="@+id/Barra1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <ImageButton
+                    android:id="@+id/imageButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="BtNuevo"
+                    android:contentDescription="@string/label_nuevo"
+                    android:src="@drawable/document_new" />
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="BtAbrir"
+                    android:contentDescription="@string/label_abrir"
+                    android:src="@drawable/document_open" />
+                <ImageButton
+                    android:id="@+id/imageButton0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="BtGuardar"
+                    android:contentDescription="@string/label_guardar"
+                    android:src="@drawable/document_save" />
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="BtGuardarComo"
+                    android:contentDescription="@string/label_guardar_como"
+                    android:src="@drawable/document_save_as" />
+
+                <ImageButton
+                    android:id="@+id/imageButton6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="Cortar"
+                    android:contentDescription="@string/label_cortar"
+                    android:src="@drawable/edit_cut" />
+
+                <ImageButton
+                    android:id="@+id/imageButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="Copiar"
+                    android:contentDescription="@string/label_copiar"
+                    android:src="@drawable/edit_copy" />
+
+                <ImageButton
+                    android:id="@+id/imageButton5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="Pegar"
+                    android:contentDescription="@string/label_pegar"
+                    android:src="@drawable/edit_paste" />
+
+                <ImageButton
+                    android:id="@+id/imageButton7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="BtBuscar"
+                    android:contentDescription="@string/label_buscar"
+                    android:src="@drawable/edit_search" />
+
+                <ImageButton
+                    android:id="@+id/imageButton8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="BtBuscarSiguiente"
+                    android:contentDescription="@string/label_buscar_siguiente"
+                    android:src="@drawable/edit_search_next" />
+
+                <ImageButton
+                    android:id="@+id/imageButton9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="IrA"
+                    android:contentDescription="@string/label_ir"
+                    android:src="@drawable/go_jump" />
+
+                <ImageButton
+                    android:id="@+id/imageButton10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="BtPropiedades"
+                    android:contentDescription="@string/label_propiedades"
+                    android:src="@drawable/document_properties" />
+
+                <ImageButton
+                    android:id="@+id/imageButton12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="BtAyuda"
+                    android:contentDescription="@string/label_ayuda"
+                    android:src="@drawable/system_help" />
+
+                <ImageButton
+                    android:id="@+id/imageButton13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="BtAcerca"
+                    android:contentDescription="@string/label_acercade"
+                    android:src="@drawable/gnome_about_logo" />
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="match_parent"
+            android:contentDescription="label_text"
+            android:layout_height="wrap_content" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+
+
+</RelativeLayout>

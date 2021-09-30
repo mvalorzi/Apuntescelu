@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Apuntescelu</string>
+    <string name="label_nuevo">New</string>
+    <string name="label_ok">Ok</string>
+    <string name="label_guardar">Save</string>
+    <string name="label_guardar_como">Save as</string>
+    <string name="label_abrir">Open</string>
+    <string name="label_copiar">Copy</string>
+    <string name="label_cortar">Cut</string>
+    <string name="label_pegar">Paste</string>
+    <string name="label_eliminar">Erase</string>
+    <string name="label_buscar">Find</string>
+    <string name="label_buscar_siguiente">Find Next</string>
+    <string name="label_propiedades">Properties</string>
+    <string name="label_ayuda">Help</string>
+    <string name="label_acercade">About</string>
+    <string name="label_home">Home</string>
+    <string name="label_up">Up</string>
+    <string name="label_ir">Go</string>
+    <string name="label_text">Text</string>
+    <string name="label_file_name">file name</string>
+    <string name="content_ayuda">Plain Text Editor for Android\\nMore information at programas.aspx.com.ar\\n\\nTo remove a file, clear the contents and press Save.</string>
+    <string name="content_about">Plain Text Editor for Android\\nAuthor: Martin Valorzi\\nprogramas.aspx.com.ar</string>
+    <string name="content_version">Apuntescelu 2.0</string>
+    <string name="label_ir_a">go to ...</string>
+    <string name="label_chars">"Chars: "</string>
+    <string name="label_read">"Read: "</string>
+    <string name="label_write">"Write: "</string>
+    <string name="label_si">Yes</string>
+    <string name="label_no">No</string>
+    <string name="label_size">"Size:  "</string>
+    <string name="label_nombre_archivo">File Name</string>
+</resources>
