@@ -46,11 +46,10 @@ public class MainActivity extends Activity {
     private static final int OPEN_FILE = 1;
     private static final int SAVE_FILE = 2;
     private EditText editText1;
-    private EditText nombreArchivo;
-
-    private String archivoActual,clave,Portapapeles;
+    private String archivoActual;
+    private String Portapapeles;
+    private String clave; //Clave de Búsqueda
     private int evento;
-    private HorizontalScrollView Barra1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,15 +61,10 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
 //	getMenuInflater().inflate(R.menu.main, menu);
-        Barra1.setVisibility((Barra1.getVisibility()==View.VISIBLE)?View.GONE:View.VISIBLE);
         return false;
     }
     protected void Inicio(){
         editText1=(EditText) findViewById(R.id.editText1);
-        nombreArchivo=(EditText) findViewById(R.id.nombreArchivo);
-        Barra1=(HorizontalScrollView)findViewById(R.id.Barra1);
-
-
         archivoActual="";
         clave="";
         Portapapeles="";
@@ -124,13 +118,6 @@ public class MainActivity extends Activity {
             @Override public void onClick(DialogInterface dialog, int which) {}
         });
         alerta.setMessage(s).setCancelable(false).create().show();
-    }
-
-    public void BtOk(View v){
-        String nArchivo=nombreArchivo.getText().toString();
-        if(nArchivo.indexOf('.')<0)nArchivo=nArchivo+".txt";
-     //   guardarFichero(directorioActual,nArchivo);
-        evento=0;
     }
 
     public void BtAcerca(View v){
@@ -205,48 +192,7 @@ public class MainActivity extends Activity {
         }
         return p;
     }
-    private void guardarFichero(String ruta,String nombre){
-        int salida=0;
-        try
-        {
-            File f = new File(ruta,nombre);
-            if(f.exists()){
-                LanzarAlerta("Alerta","SobreEscribir el fichero?");
-                return;
-            }
 
-
-            archivoActual=f.getAbsolutePath();++salida;
-            archivoActual=f.getName();++salida;
-
-            OutputStreamWriter fout =new OutputStreamWriter(new FileOutputStream(f));++salida;
-            archivoActual=f.getName();++salida;
-            fout.write( editText1.getText().toString());++salida;
-            archivoActual=f.getName();++salida;
-            fout.close();++salida;
-            archivoActual=f.getName();++salida;
-        }
-        catch (Exception ex)
-        {
-            Log.e(String.valueOf(salida), "Error en el fichero");
-        }
-    }
-    private void _guardarFichero(String ruta,String nombre){
-        try
-        {
-            File f = new File(ruta, nombre);
-            //directorioActual=f.getAbsolutePath();
-            archivoActual=f.getName();
-            if(editText1.getText().toString().length()==0&&nombre.length()>0){f.delete();archivoActual="";return;}
-            OutputStreamWriter fout =new OutputStreamWriter(new FileOutputStream(f));
-            fout.write( editText1.getText().toString());
-            fout.close();
-        }
-        catch (Exception ex)
-        {
-            Log.e(ruta+nombre, "Error al escribir el fichero");
-        }
-    }
     private void LanzarAlerta(String Titulo,String Mensaje){
         new AlertDialog.Builder(this)
                 .setTitle(Titulo)

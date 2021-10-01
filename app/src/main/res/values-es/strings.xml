@@ -21,8 +21,8 @@
     <string name="label_text">Texto</string>
     <string name="label_file_name">nombre de archivo</string>
     <string name="content_ayuda">Editor de Texto Plano para Android\\nMas informacion en programas.com.ar\\n\\nPara eliminar un archivo, borre todo el contenido y pulse guardar.\\n \'Ir a\' permite dirigirnos a una posición dentro del texto.</string>
-    <string name="content_about">Editor de Texto Plano para Android\\nAutor: Martin Valorzi\\nprogramas.aspx.com.ar</string>
-    <string name="content_version">Apuntescelu 2.0</string>
+    <string name="content_about">Editor de Texto Plano para Android\\nAutor: Martin Valorzi\\n2021\\nprogramas.aspx.com.ar</string>
+    <string name="content_version">Apuntescelu 3.0</string>
     <string name="label_ir_a">ir a ..</string>
     <string name="label_si">Si</string>
     <string name="label_no">No</string>
@@ -31,4 +31,10 @@
     <string name="label_write">"Escritura: "</string>
     <string name="label_size">"Tamaño: "</string>
     <string name="label_nombre_archivo">Nombre de Archivo</string>
+    <string name="error_label">Error</string>
+    <string name="error_save">Error al Guardar</string>
+    <string name="error_open">Error al Abrir</string>
+    <string name="error_browser">Error al lanzar el Explorador de Archivos</string>
+    <string name="select_file_open">Elija el archivo que quiere abrir</string>
+    <string name="select_file_save">Elija el lugar donde se guardará el archivo</string>
 </resources>

@@ -33,7 +33,6 @@ public class FileDialogActivity extends AppCompatActivity {
     private String archivoActual;
     private int evento = 0;
     private String texto = "";
-    private EditText nombreArchivo;
     private EditText editText1;
 
     protected  void Cancelar(){
@@ -53,7 +52,6 @@ public class FileDialogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_dialog2);
-        nombreArchivo=(EditText) findViewById(R.id.nombreArchivo);
         editText1=(EditText) findViewById(R.id.editText1);
         Inicio();
     }
@@ -70,7 +68,7 @@ public class FileDialogActivity extends AppCompatActivity {
             else if(evento == SAVE_FILE)
                 showSaveFileChooser();
         } catch (Exception e) {
-            LanzarAlerta("Error","Error al desplegar el Explorador de Archivos");
+            LanzarAlerta(getString(R.string.error_label),getString(R.string.error_browser));
             Cancelar();
         }
 
@@ -82,10 +80,10 @@ public class FileDialogActivity extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false);
      //   intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
         try {
-            startActivityForResult(Intent.createChooser(intent, "Select a File to Upload"), OPEN_FILE);
+            startActivityForResult(Intent.createChooser(intent, getString(R.string.select_file_open)), OPEN_FILE);
         } catch (android.content.ActivityNotFoundException ex) {
             // Potentially direct the user to the Market with a Dialog
-            LanzarAlerta("Error","Error al desplegar el Explorador de Archivos");
+            LanzarAlerta(getString(R.string.error_label),getString(R.string.error_browser));
         }
     }
 
@@ -95,10 +93,10 @@ public class FileDialogActivity extends AppCompatActivity {
         intent.setType("*/*");
       //  intent.putExtra(Intent.EXTRA_TITLE, archivoActual);
         try {
-            startActivityForResult(Intent.createChooser(intent, "Select a Directory to save"), SAVE_FILE);
+            startActivityForResult(Intent.createChooser(intent, getString(R.string.select_file_save)), SAVE_FILE);
         } catch (android.content.ActivityNotFoundException ex) {
             // Potentially direct the user to the Market with a Dialog
-            LanzarAlerta("Error","Error al desplegar el Explorador de Archivos");
+            LanzarAlerta(getString(R.string.error_label),getString(R.string.error_browser));
         }
     }
 
@@ -131,7 +129,7 @@ public class FileDialogActivity extends AppCompatActivity {
                     texto = readTextFromUri(uri);
                     LaunchEditor(0, ruta, texto);
                 } catch (IOException e) {
-                    LanzarAlerta("Error","Error al Abrir");
+                    LanzarAlerta(getString(R.string.error_label),getString(R.string.error_open));
                 }
             }
             else if (requestCode == SAVE_FILE) {
@@ -147,10 +145,10 @@ public class FileDialogActivity extends AppCompatActivity {
                     LaunchEditor(0, ruta, texto);
                 }
                 catch(IOException e) {
-                    LanzarAlerta("Error","Error al Guardar");
+                    LanzarAlerta(getString(R.string.error_label),getString(R.string.error_save));
                 }
             }
-        }
+        } else Cancelar();
 
     }
     private void LanzarAlerta(String Titulo,String Mensaje){

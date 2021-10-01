@@ -20,8 +20,8 @@
     <string name="label_text">Text</string>
     <string name="label_file_name">file name</string>
     <string name="content_ayuda">Plain Text Editor for Android\\nMore information at programas.aspx.com.ar\\n\\nTo remove a file, clear the contents and press Save.</string>
-    <string name="content_about">Plain Text Editor for Android\\nAuthor: Martin Valorzi\\nprogramas.aspx.com.ar</string>
-    <string name="content_version">Apuntescelu 2.0</string>
+    <string name="content_about">Plain Text Editor for Android\\nAuthor: Martin Valorzi\\n2021\\nprogramas.aspx.com.ar</string>
+    <string name="content_version">Apuntescelu 3.0</string>
     <string name="label_ir_a">go to ...</string>
     <string name="label_chars">"Chars: "</string>
     <string name="label_read">"Read: "</string>
@@ -30,4 +30,10 @@
     <string name="label_no">No</string>
     <string name="label_size">"Size:  "</string>
     <string name="label_nombre_archivo">File Name</string>
+    <string name="error_label">Error</string>
+    <string name="error_open">Open Error</string>
+    <string name="error_save">Save Error</string>
+    <string name="error_browser">Browser Error</string>
+    <string name="select_file_save">Select a Directory to save</string>
+    <string name="select_file_open">Select a File</string>
 </resources>

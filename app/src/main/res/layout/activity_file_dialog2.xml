@@ -19,15 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/nombreArchivo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="label_text">
-
-            <requestFocus />
-        </EditText>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
