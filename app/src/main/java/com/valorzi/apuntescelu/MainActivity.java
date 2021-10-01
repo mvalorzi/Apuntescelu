@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
     private static final int OPEN_FILE = 1;
     private static final int SAVE_FILE = 2;
     private EditText editText1;
-    private String archivoActual;
+    private String uriString;
     private String Portapapeles;
     private String clave; //Clave de Búsqueda
     private int evento;
@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
     }
     protected void Inicio(){
         editText1=(EditText) findViewById(R.id.editText1);
-        archivoActual="";
+        uriString="";
         clave="";
         Portapapeles="";
         evento=0;
@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
             try{
                 evento = myIntent.getIntExtra("keyEvento", 0);
                 editText1.setText(myIntent.getStringExtra("keyText"));
-                archivoActual = myIntent.getStringExtra("keyArchivo");
+                uriString = myIntent.getStringExtra("keyArchivo");
             }
             catch(Exception e) {
 
@@ -98,18 +98,19 @@ public class MainActivity extends Activity {
     }
 
     public void BtGuardar(View v){
-        if(archivoActual.length()==0){
+        if(uriString.length()==0){
             BtGuardarComo(v);
         }
         else{
-     //       _guardarFichero(directorioActual,archivoActual);
+     //   Crear el método para guardar desde la uriString sin pasar por el Save Dialog.
+            BtGuardarComo(v);
         }
     }
 
 
 
     public void BtNuevo(View v){
-        archivoActual="";
+        uriString="";
         editText1.setText("");
     }
     public void Aviso(String s){
@@ -138,7 +139,7 @@ public class MainActivity extends Activity {
         Confirmar(getString(R.string.label_ir_a),String.valueOf(editText1.getSelectionStart()),5);
     }
     public void BtPropiedades(View v){
-        LanzarAlerta(getString(R.string.label_propiedades), Propiedades(archivoActual));
+        LanzarAlerta(getString(R.string.label_propiedades), Propiedades(uriString));
     }
     public void Pegar(View v){
         int inicio=editText1.getSelectionStart();int fin=editText1.getSelectionEnd();
@@ -188,7 +189,7 @@ public class MainActivity extends Activity {
 
             p = p + f.getAbsolutePath() + "\n";
         } catch (Exception e) {
-            p = "Error en el archivo";
+            p = getString(R.string.error_file);
         }
         return p;
     }

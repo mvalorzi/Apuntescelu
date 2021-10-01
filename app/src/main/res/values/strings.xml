@@ -36,4 +36,5 @@
     <string name="error_browser">Browser Error</string>
     <string name="select_file_save">Select a Directory to save</string>
     <string name="select_file_open">Select a File</string>
+    <string name="error_file">File Error</string>
 </resources>
