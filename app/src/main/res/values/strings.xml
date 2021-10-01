@@ -19,8 +19,8 @@
     <string name="label_ir">Go</string>
     <string name="label_text">Text</string>
     <string name="label_file_name">file name</string>
-    <string name="content_ayuda">Plain Text Editor for Android\\nMore information at programas.aspx.com.ar\\n\\nTo remove a file, clear the contents and press Save.</string>
-    <string name="content_about">Plain Text Editor for Android\\nAuthor: Martin Valorzi\\n2021\\nprogramas.aspx.com.ar</string>
+    <string name="content_ayuda">Plain Text Editor for Android\nMore information at programas.aspx.com.ar\nTo remove a file, clear the contents and press Save.</string>
+    <string name="content_about">Plain Text Editor for Android\nAuthor: Martin Valorzi\n2021\nprogramas.aspx.com.ar</string>
     <string name="content_version">Apuntescelu 3.0</string>
     <string name="label_ir_a">go to ...</string>
     <string name="label_chars">"Chars: "</string>
